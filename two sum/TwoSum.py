@@ -17,4 +17,4 @@ class Solution:
                     return [i,j]
                 j+=1
             i+=1
-        return [i,j]
+        return []
