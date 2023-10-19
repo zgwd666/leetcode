@@ -1,6 +1,9 @@
 #https://leetcode.cn/problems/valid-parentheses/description/
 class Solution:
     def isValid(self, s: str) -> bool:
+        '''
+        
+        '''
         length=len(s)
         str=list(s)
         dict_Parentheses={'(':')','{':'}','[':']'}
