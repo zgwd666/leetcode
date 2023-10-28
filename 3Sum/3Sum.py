@@ -11,29 +11,29 @@
 '''
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
-        if len(nums)<3:
+        if len(nums)<3:#如果数组中小于3个数，直接返回[]
             return []
-        l1=sorted(nums)
-        res=[]
-        for i in range(len(l1)):
-            if l1[i]>0:
+        l1=sorted(nums)#将数组进行从大到小的排序
+        res=[]#创建空的结果列表
+        for i in range(len(l1)):#进行遍历
+            if l1[i]>0:#当前元素>0，则直接返回
                 return res
-            if i>0 and l1[i]==l1[i-1]:
+            if i>0 and l1[i]==l1[i-1]:#跳过重复解和假如是[0,0,0]也会返回一个结果
                 continue
-            l=i+1
-            r=len(l1)-1
-            while l<r:
-                if l1[i]+l1[l]+l1[r]==0:
+            l=i+1#定义左指针
+            r=len(l1)-1#定义右指针
+            while l<r:#进行遍历，直到左右指针碰到一起
+                if l1[i]+l1[l]+l1[r]==0:#相加正好等于0：则将当前的数组加入解中
                     res.append([l1[i],l1[l],l1[r]])
-                    while l<r and l1[l]==l1[l+1]:
+                    while l<r and l1[l]==l1[l+1]:#跳过左侧重复数字
                         l+=1
-                    while l<r and l1[r]==l1[r-1]:
+                    while l<r and l1[r]==l1[r-1]:#跳过左侧重复数字
                         r-=1
-                    l+=1
+                    l+=1#左右指针向内移动 同时移动的原因是：左指针的数字一定会改变，为了匹配上，右指针的数字也必须改变
                     r-=1
-                elif l1[i]+l1[l]+l1[r]>0:
+                elif l1[i]+l1[l]+l1[r]>0:#大于0，则证明右侧的数太大了，将右指针向左移动
                     r-=1
-                else:
+                else:#小于0，则证明左侧的数太小了，将左指针向右移动
                     l+=1
         return res
 
