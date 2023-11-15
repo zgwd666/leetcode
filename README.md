@@ -1,2 +1,2 @@
-# Letcode
-Solve the letcode problem with python
+# Leetcode
+Solve the leetcode problem with python
